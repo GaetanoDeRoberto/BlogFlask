@@ -4,13 +4,13 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-#creazione route docrator
+#creazione route decoretor pagine home 
 @app.route('/')
 def index():
     firstName = "Tano"
     pizzePreferite = ["margherita", "marinara", "calzone", 1978]
     return render_template('index.html', firstName=firstName, pizzePreferite=pizzePreferite)
-
+#pagina user
 @app.route('/user/<name>')
 def user(name):
     return render_template("user.html", user_name=name )
