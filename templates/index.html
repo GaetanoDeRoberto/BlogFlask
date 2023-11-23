@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Flask</title>
+</head>
+
+<header>
+    <h1>Blog Flask</h1>
+</header>
+
+<body>
+    
+    <h2>Benvenuto nel Blog Python realizzato con il framework Flask</h2>
+
+    <h3>Pizze prefertie</h3>
+
+    <h4>
+        {% for pizza in pizzePreferite %} 
+
+            {% if pizza == 1978 %}
+                - {{pizza }} (Che è il tuo anno di nascita!) <br>
+            {% else %}
+                - {{pizza}}<br> 
+            {% endif %}
+        {% endfor %}
+    </h4>
+
+</body>
+
+<footer>
+    <h3>Diritti riservati GDR Design {{firstName}}</h3>
+</footer>
+
+</html>
