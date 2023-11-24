@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- stampa messaggio dopo invio form -->
+
+ {% for messaggio in get_flashed_messages() %}
+ <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{messaggio}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+ {% endfor %}
+
+ <!-- sezione form verifica condizione -->
+
+{% if nome %}
+    <h1>Ciao {{nome}}!!</h1>
+{% else %}
+    <h1>Qual'è il tuo nome?</h1>
+    <br>
+    <form method="POST">
+        {{form.hidden_tag()}}
+
+        {{form.nome.label(class="form-label")}}
+        {{form.nome(class="form-control")}}
+        <br> 
+        {{form.invia(class="btn btn-secondary")}}
+    </form>
+{% endif %}
+{% endblock %}
