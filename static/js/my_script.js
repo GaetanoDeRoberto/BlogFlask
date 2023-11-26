@@ -1,0 +1,1 @@
+document.getElementById("demojs").innerHTML = "Questo è stato creato con javascript";

@@ -1,20 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-
-<h2>Benvenuto nel Blog Python realizzato con il framework Flask</h2>
+<h1>Benvenuto nel Blog Python realizzato con il framework Flask</h1>
 
 <h3>Pizze preferite</h3>
 
 <h4>
-    {% for pizza in pizzePreferite %}
-
-    {% if pizza == 1978 %}
-    - {{pizza }} (Che è il tuo anno di nascita!) <br>
-    {% else %}
-    - {{pizza}}<br>
-    {% endif %}
-    {% endfor %}
+  {% for pizza in pizzePreferite %} {% if pizza == 1978 %} - {{pizza }} (Che è
+  il tuo anno di nascita!) <br />
+  {% else %} - {{pizza}}<br />
+  {% endif %} {% endfor %}
 </h4>
 
 <h3>Diritti riservati GDR Design {{firstName}}</h3>

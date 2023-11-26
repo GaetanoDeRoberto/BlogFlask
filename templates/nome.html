@@ -1,30 +1,34 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <!-- stampa messaggio dopo invio form -->
 
- {% for messaggio in get_flashed_messages() %}
- <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{messaggio}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
- {% endfor %}
+{% for messaggio in get_flashed_messages() %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{messaggio}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %}
 
- <!-- sezione form verifica condizione -->
+<!-- sezione form verifica condizione -->
 
 {% if nome %}
-    <h1>Ciao {{nome}}!!</h1>
+<h1>Ciao {{nome}}!!</h1>
 {% else %}
-    <h1>Qual'è il tuo nome?</h1>
-    <br>
-    <form method="POST">
-        {{form.hidden_tag()}}
+<h1>Qual'è il tuo nome?</h1>
+<br />
+<form method="POST">
+  {{form.hidden_tag()}} {{form.nome.label(class="form-label")}}
+  {{form.nome(class="form-control")}}
+  <br />
+  {{form.invia(class="btn btn-secondary")}}
+</form>
+<br /><br />
+<p id="demojs"></p>
 
-        {{form.nome.label(class="form-label")}}
-        {{form.nome(class="form-control")}}
-        <br> 
-        {{form.invia(class="btn btn-secondary")}}
-    </form>
-{% endif %}
-{% endblock %}
+<script src="{{url_for('static', filename='js/my_script.js')}}"></script>
+{% endif %} {% endblock %}
